@@ -8,7 +8,7 @@ python htcondor-restapi.py
 (this should be on a machine with a schedd).
 
 ## Machines
-Overview of machines:
+Overview of the status of all machines:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines | jq .
 ```
@@ -23,7 +23,7 @@ curl -s http://localhost:5000/htcondor/v1/machines | jq .
   "Unclaimed": 0
 }
 ```
-List machines (provides similar information to what's provided by the `condor_status` command by default):
+List machines, providing similar information to what's provided by the `condor_status` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
 ```
@@ -41,7 +41,7 @@ curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
   }
 ]
 ```
-List machines providing a specified set of ClassAd attributes:
+List machines using a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/machines?list&attrs=Name,State" | jq .
 ```
@@ -71,7 +71,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs | jq .
   "Running": 1
 }
 ```
-List jobs (provides similar information to what's provided by the `condor_q` command by default):
+List jobs, providing similar information to what's provided by the `condor_q` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
 ```
@@ -92,7 +92,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
   ...
 ]  
 ```
-List jobs providing a specified set of ClassAd attributes:
+List jobs with a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" | jq .
 ```
