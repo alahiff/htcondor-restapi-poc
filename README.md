@@ -1,5 +1,11 @@
 # HTCondor RESTful API
-This is just a proof-of-concept and should not be used in production for many reasons (there is no authentication, no way to submit input files, no attempt to handle partitionable slots in a sensible way, ...). Being able to interact with HTCondor via a RESTful API and using JSON can be very useful!
+This is just a proof-of-concept and should not be used in production for many reasons, including:
+* there is no authentication
+* there is no way currently to submit input files
+* there has been no attempt to handle partitionable slots in a sensible way (not that `condor_status` does this anyway)
+* ...
+
+However, it demonstrates that being able to interact with HTCondor via a RESTful API and with JSON can be very useful!
 
 To run the code for testing only:
 ```
