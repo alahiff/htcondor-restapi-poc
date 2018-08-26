@@ -114,6 +114,8 @@ curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" 
   ...
 ]  
 ```
+Note that "ServerTime" is provided automatically by HTCondor's python API.
+
 Get a full job ClassAd in JSON format:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs/6 | jq .
