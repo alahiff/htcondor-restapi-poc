@@ -29,6 +29,7 @@ curl -s http://localhost:5000/htcondor/v1/machines | jq .
   "Unclaimed": 0
 }
 ```
+
 List machines, providing similar information to what's provided by the `condor_status` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
@@ -47,6 +48,7 @@ curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
   }
 ]
 ```
+
 List machines using a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/machines?list&attrs=Name,State" | jq .
@@ -60,6 +62,7 @@ curl -s "http://localhost:5000/htcondor/v1/machines?list&attrs=Name,State" | jq 
   }
 ]
 ```
+
 Getting the full ClassAd for a specific machine in JSON format:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines/vnode-0.localdomain | jq .
@@ -77,6 +80,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs | jq .
   "Running": 1
 }
 ```
+
 List jobs, providing similar information to what's provided by the `condor_q` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
@@ -98,6 +102,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
   ...
 ]  
 ```
+
 List jobs with a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" | jq .
@@ -126,6 +131,11 @@ Get a full job ClassAd in JSON format:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs/6 | jq .
 ```
+For a completed job you need to add a parameter "completed", e.g.
+```
+curl -s http://localhost:5000/htcondor/v1/jobs/2?completed | jq .
+```
+
 Submit a job:
 ```
 curl -s -X POST -H "Content-Type: application/json" \
@@ -138,6 +148,7 @@ curl -s -X POST -H "Content-Type: application/json" \
   "ClusterId": 7
 }
 ```
+
 Delete a job:
 ```
 curl -s -X DELETE http://localhost:5000/htcondor/v1/jobs/3
