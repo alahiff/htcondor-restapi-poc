@@ -11,6 +11,10 @@ def convert(input):
         return str(input)
     return input
 
+def classad_to_json(input):
+    """Convert a ClassAd into a JSON-compatible dict"""
+    return {attr:convert(input.lookup(attr).eval()) for attr in input.keys()}
+
 def jobs_list(attrs, constraint, completed):
     """Generate list of jobs"""
     schedd = htcondor.Schedd()
@@ -20,7 +24,7 @@ def jobs_list(attrs, constraint, completed):
         jobs = schedd.history(constraint, attrs)
     list = []
     for job in jobs:
-        list.append({attr:convert(job.lookup(attr).eval()) for attr in job.keys()})
+        list.append(classad_to_json(job))
     return list
 
 def jobs_overview(constraint):
@@ -40,7 +44,7 @@ def machines_list(attrs, constraint):
     startds = coll.query(htcondor.AdTypes.Startd, constraint, attrs)
     list = []
     for startd in startds:
-        list.append({attr:convert(startd.lookup(attr).eval()) for attr in startd.keys()})
+        list.append(classad_to_json(startd))
     return list
 
 def machines_overview(constraint):
