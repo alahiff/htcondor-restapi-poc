@@ -5,7 +5,7 @@ To run the code for testing only:
 ```
 python htcondor-restapi.py
 ```
-(this should be on a machine with a schedd and Flask installed).
+This should be on a machine with a schedd and Flask installed. Below `jq` is used to print JSON in a nice way.
 
 ## Machines
 Overview of the status of all machines:
