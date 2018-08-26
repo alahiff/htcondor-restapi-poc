@@ -60,7 +60,7 @@ curl -s http://localhost:5000/htcondor/v1/machines/vnode-0.localdomain | jq .
 ```
 
 ## Jobs
-Overivew of jobs:
+Overview of jobs:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs | jq .
 ```
