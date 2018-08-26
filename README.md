@@ -1,5 +1,10 @@
 # HTCondor RESTful API
-This is just a proof-of-concept and should not be used in production for a number of reasons (there is no authentication, no way to submit input files, no attempt to handle partitionable slots in a sensible way, ...). Being able to interact with HTCondor via a RESTful API and using JSON can be very useful!
+This is just a proof-of-concept and should not be used in production for many reasons (there is no authentication, no way to submit input files, no attempt to handle partitionable slots in a sensible way, ...). Being able to interact with HTCondor via a RESTful API and using JSON can be very useful!
+
+To run the code for testing only:
+```
+python htcondor-restapi.py
+```
 
 ## Machines
 Overview of machines:
