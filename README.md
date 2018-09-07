@@ -69,7 +69,9 @@ curl -s http://localhost:5000/htcondor/v1/machines/vnode-0.localdomain | jq .
 ```
 
 ## Jobs
-Overview of jobs:
+
+### Overview
+Overview of jobs in different states:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs | jq .
 ```
@@ -86,6 +88,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs | jq .
 }
 ```
 
+### Listing jobs
 List jobs, providing similar information to what's provided by the `condor_q` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
@@ -108,6 +111,7 @@ curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
 ]  
 ```
 
+### Specifying what ClassAd attributes to return
 List jobs with a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" | jq .
@@ -132,15 +136,20 @@ curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" 
 ```
 Note that "ServerTime" is provided automatically by HTCondor's python API.
 
+### Getting a full job ClassAd
 Get a full job ClassAd in JSON format:
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs/6 | jq .
 ```
+
+### Completed jobs
 For a completed job you need to add a parameter "completed", e.g.
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs/2?completed | jq .
 ```
+By default the most recently completed job will be returned. Use the parameter "num" to specify how many completed jobs to return.
 
+### Submitting jobs
 Submit a job:
 ```
 curl -s -X POST -H "Content-Type: application/json" \
@@ -154,7 +163,8 @@ curl -s -X POST -H "Content-Type: application/json" \
 }
 ```
 
-Delete a job:
+### Removing jobs
+To remove a job you just need to specify the cluster id:
 ```
 curl -s -X DELETE http://localhost:5000/htcondor/v1/jobs/3
 ```
