@@ -14,6 +14,8 @@ python htcondor-restapi.py
 This should be on a machine with a schedd and Flask installed. Below `jq` is used to print JSON in a nice way.
 
 ## Machines
+
+### Overview
 Overview of the status of all machines:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines | jq .
@@ -30,6 +32,7 @@ curl -s http://localhost:5000/htcondor/v1/machines | jq .
 }
 ```
 
+### Listing machines
 List machines, providing similar information to what's provided by the `condor_status` command by default:
 ```
 curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
@@ -49,6 +52,7 @@ curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
 ]
 ```
 
+### More detailed information
 List machines using a specified set of ClassAd attributes:
 ```
 curl -s "http://localhost:5000/htcondor/v1/machines?list&attrs=Name,State" | jq .
