@@ -76,8 +76,13 @@ curl -s http://localhost:5000/htcondor/v1/jobs | jq .
 > output
 ```
 {
-  "Idle": 3,
-  "Running": 1
+  "Completed": 0,
+  "Held": 0,
+  "Idle": 1,
+  "Jobs": 2,
+  "Removed": 0,
+  "Running": 1,
+  "Suspended": 0
 }
 ```
 
