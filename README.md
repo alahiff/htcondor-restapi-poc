@@ -151,9 +151,9 @@ For a completed job you need to add a parameter "completed", e.g.
 ```
 curl -s http://localhost:5000/htcondor/v1/jobs/2?completed | jq .
 ```
-By default the most recently completed job will be returned. Use the parameter "num" to specify how many completed jobs to return, for example:
+If you don't specify a job, by default the most recently completed job will be returned. Use the parameter "num" to specify how many completed jobs to return, for example:
 ```
-curl -s "http://localhost:5000/htcondor/v1/jobs/2?completed&num=4" | jq .
+curl -s "http://localhost:5000/htcondor/v1/jobs?completed&num=4" | jq .
 ```
 
 ### Submitting jobs
