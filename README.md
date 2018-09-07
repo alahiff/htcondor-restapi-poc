@@ -21,7 +21,7 @@ Overview of the status of all machines:
 curl -s http://localhost:5000/htcondor/v1/machines | jq .
 ```
 > output
-```
+```json
 {
   "Claimed": 1,
   "Drained": 0,
@@ -38,7 +38,7 @@ List machines, providing similar information to what's provided by the `condor_s
 curl -s http://localhost:5000/htcondor/v1/machines?list | jq .
 ```
 > output
-```
+```json
 [
   {
     "Activity": "Busy",
@@ -58,7 +58,7 @@ List machines using a specified set of ClassAd attributes:
 curl -s "http://localhost:5000/htcondor/v1/machines?list&attrs=Name,State" | jq .
 ```
 > output
-```
+```json
 [
   {
     "Name": "vnode-0.localdomain",
@@ -80,7 +80,7 @@ Overview of jobs in different states:
 curl -s http://localhost:5000/htcondor/v1/jobs | jq .
 ```
 > output
-```
+```json
 {
   "Completed": 0,
   "Held": 0,
@@ -98,7 +98,7 @@ List jobs, providing similar information to what's provided by the `condor_q` co
 curl -s http://localhost:5000/htcondor/v1/jobs?list | jq .
 ```
 > output
-```
+```json
 [
   {
     "Args": "4000",
@@ -121,7 +121,7 @@ List jobs with a specified set of ClassAd attributes:
 curl -s "http://localhost:5000/htcondor/v1/jobs?list&attrs=Owner,ClusterId,Cmd" | jq .
 ```
 > output
-```
+```json
 [
   {
     "ClusterId": 6,
@@ -161,7 +161,7 @@ curl -s -X POST -H "Content-Type: application/json" \
      http://localhost:5000/htcondor/v1/jobs | jq .
 ```
 > output
-```
+```json
 {
   "ClusterId": 7
 }
